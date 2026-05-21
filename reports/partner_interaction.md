@@ -43,5 +43,5 @@
 |Фотографии||
 |:-:|:-:|
 
-|![фото](../docs/images/I1.jpg)|![фото](docs/images/I2.jpg)|
-|![фото](docs/images/I3.jpg)|![фото](docs/images/I4.jpg)|
+|![фото](../docs/images/I1.jpg)|![фото](../docs/images/I2.jpg)|
+|![фото](../docs/images/I3.jpg)|![фото](../docs/images/I4.jpg)|
