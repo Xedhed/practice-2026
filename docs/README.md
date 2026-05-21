@@ -7,5 +7,5 @@
 [Журнал](Journal.md)<br>
 [Команда](Team.md)
 
-## [Взаимодействие с партнером](reports/partner_interaction.md)
+## [Взаимодействие с партнером](interaction.md)
 ## [Вариативная часть](3DRenderer.md)
