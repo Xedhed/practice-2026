@@ -3,9 +3,8 @@
 
 [Основы Markdown](osnovymarkdown.md)
 
-## О проекте
+## [О проекте](aboutproj.md)<br>
 
-[Основная информация](aboutproj.md)<br>
 [Журнал](Journal.md)<br>
 [Команда](Team.md)
 
