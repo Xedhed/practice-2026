@@ -3,7 +3,7 @@
 
 ## Описание проекта
 
-[О проекте](About.md)<br>
+[О проекте](aboutproj.md)<br>
 [Журнал](Journal.md)<br>
 [Команда](Team.md)
 
