@@ -4,7 +4,7 @@
 
 [Туториал](https://joaoventura.net/blog/2017/python-webserver/) был взят из приложенного к заданию списка [технологий](https://github.com/codecrafters-io/build-your-own-x?tab=readme-ov-file#build-your-own-shell)
 
-##Схема взаимодействия клиент-сервер
+## Схема взаимодействия клиент-сервер
 
 
 
