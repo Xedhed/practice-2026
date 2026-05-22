@@ -1,3 +1,3 @@
 # Отчёты в бинарных форматах
 
-Общий отчет [pdf](report.pdf) / [docx](report.docx)
+Отчет по проектной практике [pdf](report.pdf) / [docx](report.docx)
