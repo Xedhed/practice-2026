@@ -5,6 +5,6 @@
 
 ## [Взаимодействие с партнером](interaction.md)
 
-## [Вариативная часть](3DRenderer.md)
+## [Вариативная часть](varHTTP.md)
 
 ## [Основы Markdown](osnovymarkdown.md)
