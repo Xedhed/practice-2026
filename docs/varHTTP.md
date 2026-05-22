@@ -50,3 +50,26 @@ server_socket.bind((SERVER_HOST, SERVER_PORT))
 server_socket.listen(1)
 print(f'Сервер запущен и слушает порт {SERVER_PORT}...')
 ```
+## Обработка первого подключения ("Hello World")
+
+Добавим бесконечный цикл while True, который будет принимать соединение, считывать байты запроса от браузера и отправлять обратно текстовый HTTP-ответ.
+```python
+while True:    
+    # Ждем подключения клиента
+    client_connection, client_address = server_socket.accept()
+
+    # Получаем запрос от клиента (считываем первые 1024 байта и декодируем в текст)
+    request = client_connection.recv(1024).decode('utf-8')
+    print("--- Получен запрос ---")
+    print(request)
+
+    # Формируем сырой HTTP-ответ 
+    response = 'HTTP/1.0 200 OK\n\nHello World'
+    
+    # Отправляем байты клиенту и закрываем соединение
+    client_connection.sendall(response.encode('utf-8'))
+    client_connection.close()
+
+# Закрываем серверный сокет при выходе (опционально)
+server_socket.close()
+```
