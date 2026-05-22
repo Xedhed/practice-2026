@@ -95,8 +95,6 @@ server_socket.close()
 Изменим логику внутри цикла while True:
 
 ```python
-# ... получение запроса ...
-
     # Читаем содержимое файла index.html
     try:
         with open('htdocs/index.html', 'r', encoding='utf-8') as fin:
