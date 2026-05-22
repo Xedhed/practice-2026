@@ -18,7 +18,7 @@
 
 Для вариативной части я выбрал проект "Python: Building a basic HTTP Server from scratch in Python".
 
-Ознакомиться с проектом можно [здесь](docs/varHTTP.md).
+Ознакомиться можно [здесь](docs/varHTTP.md).
 
 ## Ответственный по проектной (учебной) практике
 
