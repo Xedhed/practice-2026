@@ -6,7 +6,7 @@
 |-|-|-|-|
 |Помпа Сергей Олегович|251-338|09.03.02|Информационные системы и технологии|
 
-## [Отчет](report/README.md)
+## [Отчет](reports/README.md)
 ## [Документации](docs/README.md)
 ## [Сайт](https://xedhed.github.io/practice_site1/)
 
