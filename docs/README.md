@@ -5,7 +5,7 @@
 
 ## О проекте
 
-[Основная информаиця](aboutproj.md)<br>
+[Основная информация](aboutproj.md)<br>
 [Журнал](Journal.md)<br>
 [Команда](Team.md)
 
