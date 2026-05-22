@@ -73,3 +73,84 @@ while True:
 # Закрываем серверный сокет при выходе (опционально)
 server_socket.close()
 ```
+Остальная часть кода понятна сама собой: ожидание подключения клиента, чтение строки запроса, отправка строки в формате HTTP с текстом "Hello World" в теле ответа и закрытие соединения с клиентом. Мы делаем это бесконечно (или пока кто-нибудь не нажмет Ctrl+C). Откроем свой браузер по адресу http://localhost:8000/, и мы должны увидим ответ сервера:
+
+![фото](../docs/images/scheme1.jpg)
+
+## Чтение статического файла index.html
+
+Возвращать жестко прописанную строку неудобно. Настроим сервер так, чтобы при обращении к корню сайта он читал файл htdocs/index.html.
+
+Создадим файл htdocs/index.html:
+```html
+<html>
+<head><title>Главная страница</title></head>
+<body>
+    <h1>Привет от кастомного сервера!</h1>
+    <p>Это статическая страница index.html.</p>
+    <p>Перейти на <a href="ipsum.html">другую страницу</a></p>
+</body>
+</html>
+```
+Изменим логику внутри цикла while True:
+
+```python
+# ... получение запроса ...
+
+    # Читаем содержимое файла index.html
+    try:
+        with open('htdocs/index.html', 'r', encoding='utf-8') as fin:
+            content = fin.read()
+        
+        # Склеиваем HTTP-заголовки и контент файла
+        response = 'HTTP/1.0 200 OK\n\n' + content
+    except FileNotFoundError:
+        response = 'HTTP/1.0 404 NOT FOUND\n\nФайл index.html не найден'
+
+    client_connection.sendall(response.encode('utf-8'))
+    client_connection.close()
+```
+
+## Динамический парсинг пути и поддержка разных страниц
+
+Сейчас, какую бы страницу ни запросил браузер (например, http://localhost:8000/ipsum.html), сервер всё равно вернет index.html. Нам нужно научиться парсить первую строчку HTTP-запроса, вытаскивать оттуда путь к файлу и отдавать именно его.
+
+Создадим файл htdocs/ipsum.html:
+```html
+<html>
+<head><title>Ipsum</title></head>
+<body>
+    <h1>Страница Ipsum</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+</body>
+</html>
+```
+
+Обновим парсинг заголовков в коде сервера:
+```python
+if not request.strip():
+        client_connection.close()
+        continue
+
+    # Парсим HTTP-заголовки. Разбиваем по строкам.
+    lines = request.split('\n')
+    # Первая строка выглядит так: "GET /ipsum.html HTTP/1.1"
+    # Разбиваем её по пробелам и берем второй элемент (индекс 1) — путь к файлу
+    filename = lines[0].split()[1]
+
+    # Если пользователь запрашивает корень '/', подменяем на '/index.html'
+    if filename == '/':
+        filename = '/index.html'
+
+    # Пытаемся открыть файл из папки htdocs
+    try:
+        with open('htdocs' + filename, 'r', encoding='utf-8') as fin:
+            content = fin.read()
+        response = 'HTTP/1.0 200 OK\n\n' + content
+    except FileNotFoundError:
+        # Если файла нет — формируем заголовок 404 ошибки
+        response = 'HTTP/1.0 404 NOT FOUND\n\nСтраница не найдена (404)'
+
+    client_connection.sendall(response.encode('utf-8'))
+    client_connection.close()
+```
