@@ -35,7 +35,7 @@ User-Agent: Mozilla/5.0
 ```python
 import socket
 # Определяем хост и порт сервера
-SERVER_HOST = '0.0.0.0'  # Слушать все доступные сетевые интерфейсы
+SERVER_HOST = '0.0.0.0'  
 SERVER_PORT = 8000
 
 # Создаем TCP-сокет
@@ -47,7 +47,6 @@ server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 # Привязываем сокет к адресу и порту
 server_socket.bind((SERVER_HOST, SERVER_PORT))
 
-# Включаем режим прослушивания (максимум 1 подключение в очереди)
 server_socket.listen(1)
 print(f'Сервер запущен и слушает порт {SERVER_PORT}...')
 ```
