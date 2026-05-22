@@ -1,9 +1,11 @@
 
 # Markdown Документации по практике.
 
-## Описание проекта
+[Основы Markdown](osnovymarkdown.md)
 
-[О проекте](aboutproj.md)<br>
+## О проекте
+
+[Основная информаиця](aboutproj.md)<br>
 [Журнал](Journal.md)<br>
 [Команда](Team.md)
 
