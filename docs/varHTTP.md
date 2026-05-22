@@ -83,12 +83,16 @@ server_socket.close()
 
 Создадим файл htdocs/index.html:
 ```html
-<html>
-<head><title>Главная страница</title></head>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+</head>
 <body>
-    <h1>Привет от кастомного сервера!</h1>
-    <p>Это статическая страница index.html.</p>
-    <p>Перейти на <a href="ipsum.html">другую страницу</a></p>
+    <h1>Привет от самодельного сервера!</h1>
+    <p>Добро пожаловать на главную страницу (index.html).</p>
+    <p>Вы можете перейти на другую страницу по этой ссылке: <a href="/ipsum.html">Перейти на Ipsum</a></p>
 </body>
 </html>
 ```
@@ -115,15 +119,16 @@ server_socket.close()
 
 Создадим файл htdocs/ipsum.html:
 ```html
-<html>
-<head><title>Ipsum</title></head>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Страница Ipsum</title>
+</head>
 <body>
-    <h1>Страница Ipsum</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Pellentesque tincidunt libero diam, nec imperdiet libero
-        sodales quis. Nulla in pulvinar sem. Vivamus placerat
-        ullamcorper sagittis. Proin varius, erat sed egestas semper,
-        enim lectus viverra diam, id placerat est augue et turpis.</p>
+    <h1>Страница Ipsum!</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p><a href="/">Вернуться на главную</a></p>
 </body>
 </html>
 ```
